@@ -28,3 +28,4 @@ console.log(mongo == othermongo)
 
 const mysql = new Database('mysql')
 console.log(mongo == mysql)
+console.log(mysql.getData())
