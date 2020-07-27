@@ -79,4 +79,25 @@ class CultureFacade {
         return new Promise((ok, err) => !!result 
         ? ok(result) : err(this._error));
     }
+    _findMusic(id) {
+        const db = new FetchMusic();
+        return db.fetch(id)
+    }
+    _findMovie(id) {
+        return new GetMovie(id)
+    }
+    _findTVShow(id) {
+        return getTvShow(id)
+    }
+    _findBook(id) {
+        return booksResource.find(item => item.id === id)
+    }
 }
+
+// usage 
+const m = new FetchMusic();
+
+const music = new CultureFacade(TYPE_MUSIC);
+music.get(2)
+    .then(data => console.log(data))
+    .catch(e => console.error(e))
